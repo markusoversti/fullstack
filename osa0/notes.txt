@@ -1,1 +1,1 @@
-Käytin selaimessa Igcognito-tilaa, koska selaimen laajennokset aiheuttavat lisäliikennettä.
+Käytin selaimessa Icognito-tilaa, koska selaimen laajennokset aiheuttavat lisäliikennettä.
