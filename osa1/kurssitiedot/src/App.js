@@ -14,7 +14,7 @@ const App = () => {
       <Header course={course} />
 
       <Content sisalto={part1} maara={exercises1}/>
-      <Content sisalto={part2} maara={exercises3}/>
+      <Content sisalto={part2} maara={exercises2}/>
       <Content sisalto={part3} maara={exercises3}/>
 
       <Total lkm={exercises1 + exercises2 + exercises3}/>
