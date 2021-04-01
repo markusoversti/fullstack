@@ -1,24 +1,17 @@
-import React from 'react'
-const Hello = (props) => {
-  return (
-    <div>
-      <p>
-        Hello {props.name}, you are {props.age} years old
-      </p>
-    </div>
-  )
-}
+import React, { useState } from 'react'
 
 const App = () => {
-  const nimi = 'Pekka'
-  const ika = 10
+  const [ counter, setCounter ] = useState(0)
+
+  setTimeout(
+    () => setCounter(counter + 1),
+    1000
+  )
+
+  console.log('rendering...', counter)
 
   return (
-    <div>
-      <h1>Greetings</h1>
-      <Hello name="Maya" age={26 + 10} />
-      <Hello name={nimi} age={ika} />
-    </div>
+    <div>{counter}</div>
   )
 }
 

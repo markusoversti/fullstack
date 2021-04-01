@@ -42,6 +42,7 @@ const Header = (props) =>{
 const Content = (props) =>{
   return(
     <div>
+
      <p>
        {props.sisalto[0].name}
        {props.sisalto[0].exercises}
