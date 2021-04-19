@@ -1,17 +1,23 @@
 import React, { useState } from 'react'
 
 const Statistics = ({good, neutral, bad}) => {
-  return(
-    <div>
-  <h1>Statistics</h1>
-  Good: {good}<br/>
-  Neutral: {neutral}<br/>
-  Bad: {bad}<br/>
-  All: {good + neutral + bad}<br/>
-  Average: { (1*good + 0*neutral + (-1)*bad)/(good+neutral+bad) }<br/>
-  Positive: {good / (good+neutral+bad) * 100} %<br/>
-</div>
-  )
+  if ((good + neutral + bad) != 0){
+    return(
+      <div>
+      Good: {good}<br/>
+      Neutral: {neutral}<br/>
+      Bad: {bad}<br/>
+      All: {good + neutral + bad}<br/>
+      Average: { (1*good + 0*neutral + (-1)*bad)/(good+neutral+bad) }<br/>
+      Positive: {good / (good+neutral+bad) * 100} %<br/>
+      </div>
+      )
+    }
+    return(
+      <div>
+        Not given
+      </div>
+    )
 }
 
 const App = () => {
@@ -40,6 +46,7 @@ const handleClick = () => console.log('Nappia painettiin!!!')
 
 
     <br/>
+    <h1>Statistics</h1>
     <Statistics good={good} neutral={neutral} bad={bad}/>
 
     </div>
