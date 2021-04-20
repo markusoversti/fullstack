@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 const Statistics = ({good, neutral, bad}) => {
-  if ((good + neutral + bad) != 0){
+  if ((good + neutral + bad) !== 0){
     return(
       <div>
       Good: {good}<br/>
@@ -20,35 +20,43 @@ const Statistics = ({good, neutral, bad}) => {
     )
 }
 
+const Button = ({handleClick, text}) => (
+    <button onClick={handleClick}>
+      {text}
+    </button>
+ 
+)
+
 const App = () => {
   // tallenna napit omaan tilaansa
   const [good, setGood] = useState(0)
   const [neutral, setNeutral] = useState(0)
   const [bad, setBad] = useState(0)
 
-const handleClick = () => console.log('Nappia painettiin!!!')
+  //const handleClick = () => console.log('Nappia painettiin!!!')
 
+  const handleGoodClick = () => {
+    setGood(good + 1)
+  }
+  const handleNeutralClick = () => {
+    setNeutral(neutral + 1)
+  }
+  const handleBadClick = () => {
+    setBad(bad + 1)
+  }
+  
   return (
     <div>
       <h1>Give feedback</h1>
-
-      <button onClick={() => setGood(good+1)}>
-        good
-      </button>
-
-      <button onClick={() => setNeutral(neutral+1)}>
-        neutral
-      </button>
-
-      <button onClick={() => setBad(bad+1)}>
-        bad
-      </button>
-
+    
+      <Button handleClick={handleGoodClick} text='good'/>
+      <Button handleClick={handleNeutralClick} text='neutral'/>
+      <Button handleClick={handleBadClick} text='bad'/>
+  
 
     <br/>
     <h1>Statistics</h1>
     <Statistics good={good} neutral={neutral} bad={bad}/>
-
     </div>
   )
 }
