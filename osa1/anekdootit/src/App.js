@@ -13,10 +13,10 @@ const App = () => {
   const [votes, setVotes] = useState([])
 
   if (votes.length === 0){
-    setVotes(votes => votes.concat([0,0,0,0,0,0]))
+    setVotes(votes => [].concat([0,0,0,0,0,0]))
   }
 
-  const [selected, setSelected] = useState(0)
+  const [selected, setSelected] = useState(Math.floor(Math.random() * anecdotes.length))
   
   const Display = ({text}) => <div>{text}</div>
   
@@ -33,11 +33,17 @@ const App = () => {
 
   return (
     <div>
+      <h1>Anecdote of the day</h1>
       <Display text = {anecdotes[selected]} />
       <div>Has {votes[selected]} votes</div>
       <br/>
       <button onClick={handleVote}>Vote</button>
       <button onClick={handleClick} >Next anecdote</button>
+
+      <h1>Anecdote with most votes</h1>
+      
+      <Display text = {anecdotes[votes.indexOf(Math.max(...votes))]} />
+
     </div>
   )
 }
